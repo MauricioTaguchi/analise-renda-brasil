@@ -1,0 +1,2 @@
+-- Load data (psql)
+-- \copy renda_brasil FROM 'data/renda_brasil_clean.csv' WITH (FORMAT csv, HEADER true);
