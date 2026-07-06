@@ -1,61 +1,140 @@
-# Análise de Renda no Brasil — Data Analytics Project
+# Análise de Renda no Brasil
 
-![Python](https://img.shields.io/badge/Python-3.x-blue) 
-![SQL](https://img.shields.io/badge/SQL-PostgreSQL-green) 
-![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow) 
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+Projeto de análise de dados desenvolvido para simular um fluxo real de trabalho de um **Analista de Dados Jr**.
 
-Projeto de portfólio simulando um fluxo real de trabalho de um **Analista de Dados Jr**, usando dados de renda por UF/região (dataset sintético inspirado em indicadores IBGE/PNAD).
+O projeto utiliza um dataset sintético inspirado em indicadores de renda do Brasil e aplica etapas de **ETL, análise exploratória, consultas SQL e visualização em Power BI**.
 
-## Objetivo
-Analisar **níveis**, **tendências** e **diferenças regionais** de renda, extraindo insights acionáveis e preparando uma base pronta para dashboard.
+## Objetivo do projeto
 
-## Principais Perguntas de Negócio
-- Quais UFs apresentam maior/menor renda média no ano mais recente?
-- Como a renda evoluiu ao longo do tempo (média simples vs ponderada pela população)?
-- Existe evidência de desigualdade (variabilidade) relevante entre estados?
-- Quais estados tiveram maior crescimento (YoY) no último ano?
+O objetivo é analisar diferenças de renda entre regiões e estados brasileiros, identificando padrões, tendências, desigualdades e oportunidades de interpretação a partir dos dados.
+
+O projeto foi estruturado para demonstrar habilidades práticas em análise de dados, desde o tratamento da base até a construção de insights e preparação para dashboard.
+
+## Perguntas de negócio
+
+- Quais estados apresentam maior e menor renda média?
+- Como a renda evoluiu ao longo do tempo?
+- Quais regiões possuem maior concentração de renda?
+- Existe desigualdade relevante entre os estados?
+- Quais estados apresentaram maior crescimento anual?
+- Como transformar dados brutos em visualizações úteis para tomada de decisão?
+
+## Etapas do projeto
+
+1. Coleta e organização dos dados
+2. Limpeza e tratamento da base
+3. Análise exploratória dos dados
+4. Criação de indicadores
+5. Consultas SQL para análise
+6. Construção de dashboard em Power BI
+7. Documentação dos resultados
+
+## Tecnologias utilizadas
+
+- Python
+- Pandas
+- Jupyter Notebook
+- SQL
+- Power BI
+- Excel
+- Git e GitHub
+
+## Estrutura do repositório
+
+```text
+analise-renda-brasil/
+├── data/                 # Bases brutas e tratadas
+├── notebooks/            # Notebooks de ETL e EDA
+├── sql/                  # Consultas SQL e modelagem
+├── dashboard/            # Guia e medidas para Power BI
+├── images/               # Imagens e previews do dashboard
+├── docs/                 # Dicionário de dados e documentação
+├── requirements.txt      # Dependências do projeto
+└── README.md
+```
 
 ## Entregáveis
-- ✅ Dataset tratado (`data/renda_brasil_clean.csv`)
-- ✅ Notebooks de ETL e EDA (KPIs, ranking, tendência, desigualdade, crescimento)
-- ✅ Consultas SQL (KPIs, ranking, YoY, dispersão)
-- ✅ Guia completo para construir dashboard no Power BI (`dashboard/README_dashboard.md`)
-- ✅ Imagens de preview para README (`images/`)
 
-## Dashboard Preview
-### Trend (Simple vs Weighted)
-![Trend](images/income_trend_national.png)
+- Dataset tratado em CSV
+- Notebooks de ETL e análise exploratória
+- Consultas SQL para análise dos indicadores
+- Guia para construção do dashboard em Power BI
+- Imagens de preview das visualizações
+- Documentação do fluxo analítico
 
-### Top 10 UFs (Latest Year)
-![Top 10](images/income_top10_uf.png)
+## Principais análises
 
-### Income by Region (Latest Year)
-![Region](images/income_by_region.png)
+- Ranking de renda média por estado
+- Comparação de renda por região
+- Evolução temporal da renda
+- Crescimento anual por UF
+- Comparação entre média simples e média ponderada
+- Análise de dispersão e desigualdade regional
 
-### YoY Growth (Latest Year)
-![Growth](images/growth_top10_yoy.png)
+## Como executar o projeto
 
-## Repository Structure
-```
-analise-renda-brasil/
-├── data/                 # raw & clean datasets
-├── notebooks/            # ETL + EDA
-├── sql/                  # schema + analysis queries
-├── dashboard/            # Power BI guide + DAX measures
-├── images/               # charts/dashboard previews
-└── docs/                 # data dictionary
-```
+### Instalar dependências
 
-## How to Run
-1) Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-2) Run notebooks in order
-- `notebooks/01_etl.ipynb`
-- `notebooks/02_eda.ipynb`
+### Executar notebooks
 
-## Notes
-This dataset is **synthetic** for portfolio purposes. The workflow (ETL → EDA → SQL → Dashboard) is designed to mirror real-world data analyst tasks.
+Execute os notebooks na seguinte ordem:
+
+```text
+notebooks/01_etl.ipynb
+notebooks/02_eda.ipynb
+```
+
+## Dashboard
+
+O projeto inclui uma proposta de dashboard em Power BI com indicadores e visualizações para análise de renda.
+
+Visualizações sugeridas:
+
+- Cards de KPIs principais
+- Gráfico de evolução temporal
+- Ranking Top 10 estados
+- Comparação por região
+- Crescimento anual
+- Mapa ou gráfico por UF
+
+## Exemplos de indicadores
+
+- Renda média por estado
+- Renda média por região
+- Variação anual
+- Crescimento percentual
+- Ranking de UFs
+- Média ponderada pela população
+
+## Observação sobre os dados
+
+O dataset utilizado é sintético e foi criado para fins de portfólio.
+
+Apesar disso, o fluxo do projeto simula uma rotina real de análise de dados, incluindo tratamento, exploração, modelagem, consultas e visualização.
+
+## O que este projeto demonstra
+
+- Capacidade de estruturar um projeto de dados do início ao fim
+- Limpeza e transformação de dados com Python
+- Análise exploratória com Jupyter Notebook
+- Criação de consultas SQL
+- Construção de indicadores para negócio
+- Desenvolvimento de dashboard em Power BI
+- Organização de repositório para portfólio
+
+## Melhorias futuras
+
+- Utilizar dados reais diretamente de fontes públicas
+- Automatizar a etapa de coleta de dados
+- Criar dashboard interativo publicado
+- Adicionar análise por faixa etária, escolaridade ou gênero
+- Criar documentação executiva com conclusões de negócio
+
+## Autor
+
+Maurício Ryo Toita Taguchi  
+GitHub: [MauricioTaguchi](https://github.com/MauricioTaguchi)
