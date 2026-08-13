@@ -2,6 +2,8 @@
 
 This folder contains the specification to build a professional Power BI dashboard using `data/renda_brasil_clean.csv`.
 
+> The underlying dataset is synthetic and intended only to demonstrate the analytical workflow. Dashboard values do not represent official Brazilian statistics.
+
 ## Data Model
 Single table: `renda_brasil_clean`
 
