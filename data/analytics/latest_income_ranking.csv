@@ -1,0 +1,28 @@
+quarter_code,quarter,year,quarter_number,state_code,state,region,income_real_brl,source_table,source_variable,income_year_ago_brl,yoy_pct,rank
+202601,1º trimestre 2026,2026,1,53,Distrito Federal,Centro-Oeste,6720.0,6472,5933,5767.0,16.53,1
+202601,1º trimestre 2026,2026,1,35,São Paulo,Sudeste,4378.0,6472,5933,4231.0,3.47,2
+202601,1º trimestre 2026,2026,1,33,Rio de Janeiro,Sudeste,4352.0,6472,5933,4201.0,3.59,3
+202601,1º trimestre 2026,2026,1,42,Santa Catarina,Sul,4298.0,6472,5933,4164.0,3.22,4
+202601,1º trimestre 2026,2026,1,41,Paraná,Sul,4180.0,6472,5933,3865.0,8.15,5
+202601,1º trimestre 2026,2026,1,43,Rio Grande do Sul,Sul,4127.0,6472,5933,3912.0,5.5,6
+202601,1º trimestre 2026,2026,1,51,Mato Grosso,Centro-Oeste,3940.0,6472,5933,3727.0,5.72,7
+202601,1º trimestre 2026,2026,1,52,Goiás,Centro-Oeste,3878.0,6472,5933,3447.0,12.5,8
+202601,1º trimestre 2026,2026,1,50,Mato Grosso do Sul,Centro-Oeste,3768.0,6472,5933,3706.0,1.67,9
+202601,1º trimestre 2026,2026,1,32,Espírito Santo,Sudeste,3708.0,6472,5933,3557.0,4.25,10
+202601,1º trimestre 2026,2026,1,14,Roraima,Norte,3532.0,6472,5933,3219.0,9.72,11
+202601,1º trimestre 2026,2026,1,11,Rondônia,Norte,3484.0,6472,5933,3110.0,12.03,12
+202601,1º trimestre 2026,2026,1,31,Minas Gerais,Sudeste,3448.0,6472,5933,3207.0,7.51,13
+202601,1º trimestre 2026,2026,1,16,Amapá,Norte,3412.0,6472,5933,3051.0,11.83,14
+202601,1º trimestre 2026,2026,1,17,Tocantins,Norte,3331.0,6472,5933,3149.0,5.78,15
+202601,1º trimestre 2026,2026,1,28,Sergipe,Nordeste,3031.0,6472,5933,2643.0,14.68,16
+202601,1º trimestre 2026,2026,1,24,Rio Grande do Norte,Nordeste,2953.0,6472,5933,2796.0,5.62,17
+202601,1º trimestre 2026,2026,1,12,Acre,Norte,2852.0,6472,5933,2760.0,3.33,18
+202601,1º trimestre 2026,2026,1,26,Pernambuco,Nordeste,2830.0,6472,5933,2766.0,2.31,19
+202601,1º trimestre 2026,2026,1,25,Paraíba,Nordeste,2806.0,6472,5933,2549.0,10.08,20
+202601,1º trimestre 2026,2026,1,13,Amazonas,Norte,2770.0,6472,5933,2567.0,7.91,21
+202601,1º trimestre 2026,2026,1,22,Piauí,Nordeste,2628.0,6472,5933,2606.0,0.84,22
+202601,1º trimestre 2026,2026,1,23,Ceará,Nordeste,2597.0,6472,5933,2333.0,11.32,23
+202601,1º trimestre 2026,2026,1,27,Alagoas,Nordeste,2536.0,6472,5933,2566.0,-1.17,24
+202601,1º trimestre 2026,2026,1,15,Pará,Norte,2528.0,6472,5933,2567.0,-1.52,25
+202601,1º trimestre 2026,2026,1,29,Bahia,Nordeste,2483.0,6472,5933,2279.0,8.95,26
+202601,1º trimestre 2026,2026,1,21,Maranhão,Nordeste,2240.0,6472,5933,2150.0,4.19,27
