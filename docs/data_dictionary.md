@@ -1,6 +1,6 @@
 # Data Dictionary
 
-**Source:** Synthetic dataset for portfolio (structure inspired by IBGE/PNAD indicators).
+> **Source and scope:** synthetic portfolio dataset inspired by the structure of Brazilian regional indicators. It is not an official IBGE/PNAD extract and must not be used for real-world economic conclusions.
 
 | Column | Type | Description |
 |---|---|---|

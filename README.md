@@ -1,140 +1,89 @@
-# Análise de Renda no Brasil
+# Análise de renda no Brasil — estudo com dados sintéticos
 
-Projeto de análise de dados desenvolvido para simular um fluxo real de trabalho de um **Analista de Dados Jr**.
+Projeto end-to-end de análise de dados que simula o trabalho de um **Analista de Dados Júnior**, passando por ETL, análise exploratória, SQL, definição de indicadores e especificação de um dashboard em Power BI.
 
-O projeto utiliza um dataset sintético inspirado em indicadores de renda do Brasil e aplica etapas de **ETL, análise exploratória, consultas SQL e visualização em Power BI**.
+> **Transparência sobre a fonte:** este projeto não utiliza microdados oficiais do IBGE ou da PNAD. A base é sintética, criada exclusivamente para portfólio e inspirada na estrutura de indicadores regionais brasileiros. Os números não devem ser usados para conclusões sobre a economia real.
 
-## Objetivo do projeto
+![Evolução da renda média no conjunto sintético](images/income_trend_national.png)
 
-O objetivo é analisar diferenças de renda entre regiões e estados brasileiros, identificando padrões, tendências, desigualdades e oportunidades de interpretação a partir dos dados.
+## Objetivo
 
-O projeto foi estruturado para demonstrar habilidades práticas em análise de dados, desde o tratamento da base até a construção de insights e preparação para dashboard.
+Demonstrar como transformar uma base bruta em uma análise rastreável e comunicável:
 
-## Perguntas de negócio
+1. validar e tratar os dados;
+2. criar métricas consistentes;
+3. responder perguntas de negócio com Python e SQL;
+4. converter resultados técnicos em uma proposta de dashboard;
+5. documentar limitações e próximos passos.
 
-- Quais estados apresentam maior e menor renda média?
-- Como a renda evoluiu ao longo do tempo?
-- Quais regiões possuem maior concentração de renda?
-- Existe desigualdade relevante entre os estados?
-- Quais estados apresentaram maior crescimento anual?
-- Como transformar dados brutos em visualizações úteis para tomada de decisão?
+## Perguntas analisadas
 
-## Etapas do projeto
+- Quais UFs apresentam os maiores e menores valores de renda média no cenário?
+- Como os valores evoluem entre 2018 e 2023?
+- Quais diferenças aparecem entre regiões?
+- Como a média simples difere da média ponderada pela população?
+- Quais UFs apresentam maior variação anual no conjunto sintético?
 
-1. Coleta e organização dos dados
-2. Limpeza e tratamento da base
-3. Análise exploratória dos dados
-4. Criação de indicadores
-5. Consultas SQL para análise
-6. Construção de dashboard em Power BI
-7. Documentação dos resultados
+## Resumo executivo do cenário
 
-## Tecnologias utilizadas
+A base contém **162 registros**, cobrindo 27 UFs entre 2018 e 2023. No último ano disponível:
 
-- Python
-- Pandas
-- Jupyter Notebook
-- SQL
-- Power BI
-- Excel
-- Git e GitHub
+- o RJ apresenta o maior valor sintético de renda média: **R$ 7.636,42**;
+- GO apresenta o menor valor sintético: **R$ 1.397,86**;
+- a média simples entre as UFs é **R$ 4.282,05**;
+- a média ponderada pela população é **R$ 4.480,14**.
 
-## Estrutura do repositório
-
-```text
-analise-renda-brasil/
-├── data/                 # Bases brutas e tratadas
-├── notebooks/            # Notebooks de ETL e EDA
-├── sql/                  # Consultas SQL e modelagem
-├── dashboard/            # Guia e medidas para Power BI
-├── images/               # Imagens e previews do dashboard
-├── docs/                 # Dicionário de dados e documentação
-├── requirements.txt      # Dependências do projeto
-└── README.md
-```
+As variações elevadas observadas em algumas UFs reforçam uma limitação importante: os dados servem para validar o fluxo analítico, não para representar tendências econômicas reais.
 
 ## Entregáveis
 
-- Dataset tratado em CSV
-- Notebooks de ETL e análise exploratória
-- Consultas SQL para análise dos indicadores
-- Guia para construção do dashboard em Power BI
-- Imagens de preview das visualizações
-- Documentação do fluxo analítico
+- [Notebook de ETL](notebooks/01_etl.ipynb)
+- [Notebook de análise exploratória](notebooks/02_eda.ipynb)
+- [Consultas e modelagem SQL](sql/analysis.sql)
+- [Dicionário de dados](docs/data_dictionary.md)
+- [Especificação do dashboard e medidas DAX](dashboard/README_dashboard.md)
+- [Dataset tratado](data/renda_brasil_clean.csv)
+- visualizações exportadas em `images/`
 
-## Principais análises
-
-- Ranking de renda média por estado
-- Comparação de renda por região
-- Evolução temporal da renda
-- Crescimento anual por UF
-- Comparação entre média simples e média ponderada
-- Análise de dispersão e desigualdade regional
-
-## Como executar o projeto
-
-### Instalar dependências
-
-```bash
-pip install -r requirements.txt
-```
-
-### Executar notebooks
-
-Execute os notebooks na seguinte ordem:
+## Estrutura
 
 ```text
-notebooks/01_etl.ipynb
-notebooks/02_eda.ipynb
+analise-renda-brasil/
+├── dashboard/      # Especificação do Power BI e medidas DAX
+├── data/           # Bases sintéticas bruta e tratada
+├── docs/           # Dicionário e limitações dos dados
+├── images/         # Visualizações geradas na análise
+├── notebooks/      # ETL e análise exploratória
+├── sql/            # Esquema, carga e consultas analíticas
+└── requirements.txt
 ```
 
-## Dashboard
+## Como reproduzir
 
-O projeto inclui uma proposta de dashboard em Power BI com indicadores e visualizações para análise de renda.
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+jupyter notebook
+```
 
-Visualizações sugeridas:
+Execute os notebooks nesta ordem:
 
-- Cards de KPIs principais
-- Gráfico de evolução temporal
-- Ranking Top 10 estados
-- Comparação por região
-- Crescimento anual
-- Mapa ou gráfico por UF
+1. `notebooks/01_etl.ipynb`
+2. `notebooks/02_eda.ipynb`
 
-## Exemplos de indicadores
+## Tecnologias
 
-- Renda média por estado
-- Renda média por região
-- Variação anual
-- Crescimento percentual
-- Ranking de UFs
-- Média ponderada pela população
+Python, Pandas, Jupyter Notebook, SQL, Power BI, DAX e Git.
 
-## Observação sobre os dados
+## Limitações e evolução planejada
 
-O dataset utilizado é sintético e foi criado para fins de portfólio.
-
-Apesar disso, o fluxo do projeto simula uma rotina real de análise de dados, incluindo tratamento, exploração, modelagem, consultas e visualização.
-
-## O que este projeto demonstra
-
-- Capacidade de estruturar um projeto de dados do início ao fim
-- Limpeza e transformação de dados com Python
-- Análise exploratória com Jupyter Notebook
-- Criação de consultas SQL
-- Construção de indicadores para negócio
-- Desenvolvimento de dashboard em Power BI
-- Organização de repositório para portfólio
-
-## Melhorias futuras
-
-- Utilizar dados reais diretamente de fontes públicas
-- Automatizar a etapa de coleta de dados
-- Criar dashboard interativo publicado
-- Adicionar análise por faixa etária, escolaridade ou gênero
-- Criar documentação executiva com conclusões de negócio
+- substituir a base sintética por uma fonte pública oficial e versionada;
+- automatizar download, validação e atualização dos dados;
+- publicar o dashboard interativo;
+- adicionar testes automatizados para as transformações do ETL;
+- produzir uma análise segmentada por escolaridade, gênero e faixa etária quando a fonte real permitir.
 
 ## Autor
 
-Maurício Ryo Toita Taguchi  
-GitHub: [MauricioTaguchi](https://github.com/MauricioTaguchi)
+[Maurício Ryo Toita Taguchi](https://github.com/MauricioTaguchi) · [LinkedIn](https://www.linkedin.com/in/mauriciotaguchi/)
