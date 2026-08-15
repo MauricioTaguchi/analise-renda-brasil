@@ -1,2 +1,2 @@
--- Load data (psql)
--- \copy renda_brasil FROM 'data/renda_brasil_clean.csv' WITH (FORMAT csv, HEADER true);
+-- Run from the repository root with psql.
+\copy brazil_income FROM 'data/brazil_income_clean.csv' WITH (FORMAT csv, HEADER true);
