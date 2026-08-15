@@ -21,4 +21,4 @@ jobs:
       - run: ruff check src tests
       - run: python -m pytest
       - name: Rebuild official artifacts
-        run: python -m src.income_pipeline
+        run: python -m src.income_pipeline --input data/raw/ibge_sidra_6472.json

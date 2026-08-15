@@ -1,32 +1,41 @@
-# Renda no Brasil — pipeline de dados oficiais do IBGE
+# Brazil Income Analysis — Official IBGE Data Pipeline
 
-Case end-to-end de engenharia e análise de dados que extrai uma série trimestral oficial do SIDRA, valida a cobertura das 27 UFs, cria camadas analíticas e publica um dashboard estático reproduzível.
+An end-to-end data engineering and analytics case study that extracts an official quarterly income series from IBGE SIDRA, validates all 27 Brazilian federative units, produces analytics-ready datasets, and publishes a reproducible static dashboard.
 
 [![CI](https://github.com/MauricioTaguchi/analise-renda-brasil/actions/workflows/ci.yml/badge.svg)](https://github.com/MauricioTaguchi/analise-renda-brasil/actions/workflows/ci.yml)
 
-## Resultado
+## Project outcome
 
-- fonte oficial: **IBGE/SIDRA, tabela 6472, variável 5933**;
-- indicador: rendimento médio mensal real habitualmente recebido em todos os trabalhos;
-- extração automatizada dos últimos 20 trimestres;
-- validações de qualidade, cobertura, duplicidade e valores inválidos;
-- ranking por UF, variação em quatro trimestres e série nacional exploratória;
-- [dashboard HTML autocontido](dashboard/index.html) e [resumo executivo](docs/EXECUTIVE_SUMMARY_OFFICIAL.md).
+- Official source: **IBGE SIDRA table 6472, variable 5933**
+- Indicator: real average monthly income usually received from all jobs
+- Automated extraction of the latest 20 quarters
+- Coverage, duplicate, null, and invalid-value checks
+- Ranking by federative unit, four-quarter change, and exploratory national trend
+- Self-contained [HTML dashboard](dashboard/index.html)
+- Generated [executive summary](docs/EXECUTIVE_SUMMARY.md)
+- Reproducible Python tests, linting, and continuous integration
+
+## Portfolio preview
+
+| Regional comparison | Federative-unit ranking |
+|---|---|
+| ![Average income by region](images/income_by_region.png) | ![Top federative units by income](images/income_top10_states.png) |
 
 ## Pipeline
 
 ```mermaid
 flowchart LR
-    A[API SIDRA] --> B[Raw JSON]
-    B --> C[Validação e staging]
-    C --> D[Camada analítica]
-    D --> E[Dashboard HTML]
-    D --> F[Resumo executivo]
+    A[SIDRA API] --> B[Raw JSON]
+    B --> C[Validation and normalization]
+    C --> D[Staging dataset]
+    D --> E[Analytics datasets]
+    E --> F[HTML dashboard]
+    E --> G[Executive summary]
 ```
 
-Detalhes das decisões técnicas estão em [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+See [Architecture](docs/ARCHITECTURE.md) for design decisions and data-quality guarantees.
 
-## Como reproduzir
+## Run locally
 
 ```bash
 python -m venv .venv
@@ -36,53 +45,67 @@ python -m src.income_pipeline
 pytest
 ```
 
-Para executar também os notebooks legados, instale `requirements-notebooks.txt` em um caminho curto no Windows.
+On Linux or macOS, activate the environment with `source .venv/bin/activate`.
 
-O pipeline consulta a API pública do SIDRA e atualiza:
+For a deterministic offline rebuild from the committed source snapshot:
+
+```bash
+python -m src.income_pipeline --input data/raw/ibge_sidra_6472.json
+```
+
+To run the legacy analytical notebooks, also install `requirements-notebooks.txt`.
+
+## Generated artifacts
+
+The pipeline reads the public SIDRA API and refreshes:
 
 ```text
 data/raw/ibge_sidra_6472.json
 data/staging/income_by_state_quarter.csv
 data/analytics/latest_income_ranking.csv
 data/analytics/national_income_trend.csv
-docs/EXECUTIVE_SUMMARY_OFFICIAL.md
+docs/EXECUTIVE_SUMMARY.md
 dashboard/index.html
 ```
 
-## Qualidade e rastreabilidade
+The raw JSON intentionally preserves the original labels returned by IBGE for auditability. All normalized fields, generated datasets, documentation, tests, SQL, notebooks, and user-facing content use English.
 
-- testes unitários com cobertura mínima de 80%;
-- lint com Ruff;
-- CI no GitHub Actions;
-- Dependabot para Python e Actions;
-- resposta bruta preservada para auditoria;
-- dependências versionadas para builds reprodutíveis.
+## Quality and traceability
 
-## Estrutura
+- Unit tests with a minimum coverage threshold of 80%
+- Ruff linting
+- GitHub Actions continuous integration
+- Dependabot updates for Python and GitHub Actions
+- Original API response preserved for auditing and reprocessing
+- Version-pinned dependencies for reproducible builds
+
+## Repository structure
 
 ```text
-analise-renda-brasil/
-├── src/             # extração, transformação, validação e publicação
-├── tests/           # testes automatizados
-├── data/            # camadas raw, staging e analytics
-├── dashboard/       # dashboard HTML e material legado de Power BI
-├── docs/            # arquitetura, resumo e dicionário
-├── notebooks/       # análise exploratória legada
-└── sql/             # consultas analíticas legadas
+├── src/             # extraction, transformation, validation, and publishing
+├── tests/           # automated tests
+├── data/            # raw, staging, analytics, and legacy sample datasets
+├── dashboard/       # generated HTML dashboard and Power BI guide
+├── docs/            # architecture, executive summary, and data dictionary
+├── notebooks/       # complementary exploratory analysis
+├── images/          # charts generated from the sample dataset
+└── sql/             # complementary analytical queries
 ```
 
-## Transparência sobre o conteúdo legado
+## Data transparency
 
-Os notebooks, CSVs históricos, consultas SQL e imagens originalmente incluídos neste repositório usam uma **base sintética** criada para demonstrar o fluxo analítico. Eles permanecem como material complementar e estão identificados como tal. O pipeline em `src/`, os artefatos em `data/raw`, `data/staging`, `data/analytics`, o dashboard HTML e o resumo executivo usam a série oficial do IBGE.
+The production pipeline in `src/` and the artifacts in `data/raw`, `data/staging`, and `data/analytics` use the official IBGE series.
 
-## Limitações
+The complementary notebooks, SQL examples, Power BI guide, chart images, and `data/brazil_income_*.csv` files use a **synthetic portfolio dataset**. They demonstrate the analytical workflow and are clearly separated from the official results. They must not be used for real-world economic conclusions.
 
-A média simples entre UFs é uma métrica exploratória e não substitui o agregado oficial ponderado do IBGE. Revisões metodológicas da PNAD Contínua podem alterar valores históricos. Consulte os metadados da [tabela 6472 do SIDRA](https://sidra.ibge.gov.br/tabela/6472) antes de usar os resultados em decisões econômicas.
+## Methodological limitations
 
-## Tecnologias
+The simple average across federative units is an exploratory measure. It does not replace the official population-weighted national aggregate published by IBGE. Continuous PNAD methodological revisions may change historical values. Review the metadata for [SIDRA table 6472](https://sidra.ibge.gov.br/tabela/6472) before using the results in economic decisions.
 
-Python, Pandas, Pytest, Ruff, GitHub Actions, HTML/CSS e API SIDRA/IBGE.
+## Technology stack
 
-## Autor
+Python, Pandas, Pytest, Ruff, GitHub Actions, PostgreSQL-compatible SQL, HTML/CSS, Power BI, and the IBGE SIDRA API.
+
+## Author
 
 **Mauricio Taguchi** · [LinkedIn](https://www.linkedin.com/in/mauriciotaguchi/) · [GitHub](https://github.com/MauricioTaguchi)
