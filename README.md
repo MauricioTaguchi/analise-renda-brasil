@@ -95,9 +95,9 @@ The raw JSON intentionally preserves the original labels returned by IBGE for au
 
 ## Data transparency
 
-The production pipeline in `src/` and the artifacts in `data/raw`, `data/staging`, and `data/analytics` use the official IBGE series.
+The production pipeline in `src/` and the artifacts in `data/raw`, `data/staging`, and `data/analytics` use the official IBGE series. The [Q1 2026 SQL comparison](dashboard/power-bi/q1_2026_income_comparison.sql) uses the staging CSV to reproduce the Power BI means for all 27 federal units and the four in the Southeast.
 
-The complementary notebooks, SQL examples, [legacy Power BI guide](dashboard/POWER_BI_GUIDE.md), [legacy chart images](images/), and `data/brazil_income_*.csv` files use a **synthetic portfolio dataset**. They demonstrate the analytical workflow and are clearly separated from the official results. They must not be used for real-world economic conclusions.
+The complementary notebooks, [SQL examples in `sql/`](sql/), [legacy Power BI guide](dashboard/POWER_BI_GUIDE.md), [legacy chart images](images/), and `data/brazil_income_*.csv` files use a **synthetic portfolio dataset**. They demonstrate the analytical workflow and are clearly separated from the official results. They must not be used for real-world economic conclusions.
 
 ## Methodological limitations
 
