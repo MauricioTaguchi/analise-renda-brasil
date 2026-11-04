@@ -1,6 +1,8 @@
 # Power BI Dashboard — Brazil Income Analysis
 
-This guide describes a professional Power BI dashboard built from `data/brazil_income_clean.csv`.
+For the validated report based on the official IBGE snapshot, see [Brazil Income in Power BI Desktop](power-bi/README.md).
+
+This legacy guide describes a professional Power BI dashboard built from `data/brazil_income_clean.csv`.
 
 > The underlying dataset is synthetic and exists only to demonstrate an analytical workflow. Its values do not represent official Brazilian statistics.
 

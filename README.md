@@ -12,6 +12,7 @@ An end-to-end data engineering and analytics case study that extracts an officia
 - Coverage, duplicate, null, and invalid-value checks
 - Ranking by federative unit, four-quarter change, and exploratory national trend
 - Self-contained [HTML dashboard](dashboard/index.html)
+- [Power BI Desktop report](dashboard/power-bi/BrazilIncome_Validado.pbix) with an embedded official snapshot, [15 DAX test results](dashboard/power-bi/BrazilIncome_15_testes.png) and [reproduction steps](dashboard/power-bi/README.md)
 - Generated [executive summary](docs/EXECUTIVE_SUMMARY.md)
 - Reproducible Python tests, linting, and continuous integration
 
@@ -85,7 +86,7 @@ The raw JSON intentionally preserves the original labels returned by IBGE for au
 ├── src/             # extraction, transformation, validation, and publishing
 ├── tests/           # automated tests
 ├── data/            # raw, staging, analytics, and legacy sample datasets
-├── dashboard/       # generated HTML dashboard and Power BI guide
+├── dashboard/       # HTML dashboard, validated Power BI report, and legacy guide
 ├── docs/            # architecture, executive summary, and data dictionary
 ├── notebooks/       # complementary exploratory analysis
 ├── images/          # charts generated from the sample dataset
@@ -96,7 +97,7 @@ The raw JSON intentionally preserves the original labels returned by IBGE for au
 
 The production pipeline in `src/` and the artifacts in `data/raw`, `data/staging`, and `data/analytics` use the official IBGE series.
 
-The complementary notebooks, SQL examples, Power BI guide, chart images, and `data/brazil_income_*.csv` files use a **synthetic portfolio dataset**. They demonstrate the analytical workflow and are clearly separated from the official results. They must not be used for real-world economic conclusions.
+The complementary notebooks, SQL examples, [legacy Power BI guide](dashboard/POWER_BI_GUIDE.md), chart images, and `data/brazil_income_*.csv` files use a **synthetic portfolio dataset**. They demonstrate the analytical workflow and are clearly separated from the official results. They must not be used for real-world economic conclusions.
 
 ## Methodological limitations
 
