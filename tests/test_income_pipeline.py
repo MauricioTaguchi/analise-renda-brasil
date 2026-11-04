@@ -1,6 +1,8 @@
 import json
+import sqlite3
 import tempfile
 import unittest
+from contextlib import closing
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -43,6 +45,17 @@ def complete_payload(quarters: tuple[str, ...] = ("202301", "202302", "202303", 
 
 
 class IncomePipelineTest(unittest.TestCase):
+    def test_published_q1_2026_sql_matches_validated_snapshot(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        query = (root / "dashboard/power-bi/q1_2026_income_comparison.sql").read_text(encoding="utf-8")
+        snapshot = pd.read_csv(root / "data/staging/income_by_state_quarter.csv", dtype=str, keep_default_na=False)
+
+        with closing(sqlite3.connect(":memory:")) as connection:
+            snapshot.to_sql("income", connection, index=False)
+            rows = connection.execute(query).fetchall()
+
+        self.assertEqual(rows, [("All federal units", 27, 3437.41), ("Southeast", 4, 3971.50)])
+
     def test_transform_normalizes_sidra_payload(self) -> None:
         frame = transform(
             [
