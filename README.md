@@ -16,11 +16,11 @@ An end-to-end data engineering and analytics case study that extracts an officia
 - Generated [executive summary](docs/EXECUTIVE_SUMMARY.md)
 - Reproducible Python tests, linting, and continuous integration
 
-## Portfolio preview
+## Power BI report
 
-| Regional comparison | Federative-unit ranking |
-|---|---|
-| ![Average income by region](images/income_by_region.png) | ![Top federative units by income](images/income_top10_states.png) |
+![Power BI Desktop report with Q1 2026 selected, all regions included and all 27 federal units represented](dashboard/power-bi/BrazilIncome_Q1_2026.png)
+
+The report compares each quarter with the same quarter a year earlier. Its first quarter, Q2 2021, has no Q2 2020 observation to compare against, so the year-over-year card stays blank. A zero would mean the two observed values were equal. [Check 14 in the DAX validation query](dashboard/power-bi/BrazilIncome.SemanticModel/DAXQueries/Validar_BrazilIncome.dax#L20).
 
 ## Pipeline
 
@@ -97,7 +97,7 @@ The raw JSON intentionally preserves the original labels returned by IBGE for au
 
 The production pipeline in `src/` and the artifacts in `data/raw`, `data/staging`, and `data/analytics` use the official IBGE series.
 
-The complementary notebooks, SQL examples, [legacy Power BI guide](dashboard/POWER_BI_GUIDE.md), chart images, and `data/brazil_income_*.csv` files use a **synthetic portfolio dataset**. They demonstrate the analytical workflow and are clearly separated from the official results. They must not be used for real-world economic conclusions.
+The complementary notebooks, SQL examples, [legacy Power BI guide](dashboard/POWER_BI_GUIDE.md), [legacy chart images](images/), and `data/brazil_income_*.csv` files use a **synthetic portfolio dataset**. They demonstrate the analytical workflow and are clearly separated from the official results. They must not be used for real-world economic conclusions.
 
 ## Methodological limitations
 
