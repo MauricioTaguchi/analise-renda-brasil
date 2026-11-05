@@ -2,6 +2,10 @@
 
 An end-to-end data engineering and analytics case study that extracts an official quarterly income series from IBGE SIDRA, validates all 27 Brazilian federative units, produces analytics-ready datasets, and publishes a reproducible static dashboard.
 
+[**Live demo**](https://mauriciotaguchi.com.br/demos/income/) · [**Case study**](https://mauriciotaguchi.com.br/case-studies/brazil-income.html)
+
+The browser demo uses a fixed IBGE snapshot covering Q2 2021–Q1 2026; it is not a live data feed.
+
 [![CI](https://github.com/MauricioTaguchi/analise-renda-brasil/actions/workflows/ci.yml/badge.svg)](https://github.com/MauricioTaguchi/analise-renda-brasil/actions/workflows/ci.yml)
 
 ## Project outcome
@@ -11,7 +15,7 @@ An end-to-end data engineering and analytics case study that extracts an officia
 - Automated extraction of the latest 20 quarters
 - Coverage, duplicate, null, and invalid-value checks
 - Ranking by federative unit, four-quarter change, and exploratory national trend
-- Self-contained [HTML dashboard](dashboard/index.html)
+- Self-contained [HTML dashboard source](dashboard/index.html)
 - [Power BI Desktop report](dashboard/power-bi/BrazilIncome_Validado.pbix) with an embedded official snapshot, [15 DAX test results](dashboard/power-bi/BrazilIncome_15_testes.png) and [reproduction steps](dashboard/power-bi/README.md)
 - Generated [executive summary](docs/EXECUTIVE_SUMMARY.md)
 - Reproducible Python tests, linting, and continuous integration
